@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registros</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Linha</th>
+                <th>Mot</th>
+                <th>Veículo</th>
+                <th>Carreta</th>
+                <th>Criado em</th>
+                <th>Atualizado em</th>
+            </tr>
+        </thead>
+        <tbody id="dados-lista"></tbody>
+    </table>
+
+    <script>
+    //Função para buscar dados do servidor e manipular a exibição
+        async function buscarDados(){
+            try{
+                const resposta = await fetch('/registro');
+                const dados = await resposta.json();
+
+                const lista = document.getElementById("dados-lista");
+                const linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${registro.tipo}</td>
+                        <td>${registro.data}</td>
+                        <td>${registro.linha}</td>
+                        <td>${registro.mot}</td>
+                        <td>${registro.veiculo}</td>
+                        <td>${registro.carreta}</td>
+                        `;
+                    lista.appendChild(linha);
+            }catch(error){
+                console.log("Erro ao buscar dados:", error);
+            }
+        }
+
+        window.onload = buscarDados
+    </script>
+</body>
+</html>

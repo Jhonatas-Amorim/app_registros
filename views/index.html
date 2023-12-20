@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/download.png" type="image/x-icon" />
+    <title>Registro | PTE</title>
+    <style>
+    *{
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    #div1{
+        padding: 5px;
+        display: inline-flex;    
+    }
+
+    #container{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;    
+    }
+
+    .inputs{
+        margin-bottom: 0.8rem;
+        height: 3rem;
+        font-size: 20px;
+    }
+
+    #radio{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;    
+        margin-bottom: 0.8rem;
+        font-size: 25px;
+    }
+
+    #radio input[type="radio"]{
+        appearance: none;
+        border: black solid 1px;
+        padding: 0.6rem;
+        border-radius: 58%;
+        background-color: white;
+        margin-bottom: 1%;
+
+    }
+
+    #radio input[type="radio"]:checked{
+        background-image: radial-gradient(green 40%, white 40%) ;
+    }
+
+    h1{
+        text-align: center;
+        color: rgb(0, 128, 0);
+        margin-top: 0;
+        font-size: 28px;
+        margin-left: 10px;
+    }
+
+    #divButton{
+        display: flex;
+        justify-content: center;
+    }
+
+    #button{
+        width: 80%;
+        color: green;
+        background-color: rgba(0, 128, 0, 0.281);
+        border: none;
+        border: rgba(199, 191, 191, 0.733) solid;    
+    }
+
+    #chec{
+        display: inline;
+        font-size: 20px;
+    }
+    #chec input[type="checkbox"]{
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    #seta{
+        text-decoration: none;
+        height: 30px;
+        width: 30px;
+        margin-left: 15px;
+        margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="/Portaria/index.html">
+        <img src="/img/back.png" alt=""  id="seta">
+    </a>
+    <h1>Registro de Entrada e Saida</h1>
+   </div>
+    <form action="/registro" method="post">
+        <div id="container">
+            <div id="radio">
+                <input type="radio" value="entrada" id="entrada" name="registro" required>
+                <label for="entrada">Entrada</label>
+                <input type="radio" value="saida" id="saida" name="registro">
+                <label for="saida">Saida</label>
+            </div>
+            <label for="data">Data:</label>
+            <input class="inputs" type="datetime-local" id="data" name="data" required>
+            <div id="chec">
+                <input type="checkbox" name="semRomaneio" id="romaneio">
+                <label for="romaneio">Sem Romaneio</label>
+            </div>
+            <label for="linha">Linha:</label>
+            <input class="inputs" type="text" id="linha" name="linha" required>
+            <label for="mot">Motorista:</label>
+            <input class="inputs" type="text" id="mot" name="mot" required>
+            <label for="veiculo">Veiculo:</label>
+            <input class="inputs" type="text" id="veiculo" name="veiculo" required>
+            <label for="carreta">Carreta:</label>
+            <input class="inputs" type="text" id="carreta" name="carreta">
+            <div id="divButton">
+                <input class="inputs" type="submit" value="Registrar" id="button">
+            </div>        
+        </div>
+    </form>
+    <script>
+    var linha = document.getElementById('linha')
+    var rome = document.getElementById('romaneio')
+
+    rome.addEventListener('change', function(){
+        if(rome.checked){
+            linha.disabled = true
+        }else{
+            linha.disabled = false
+        }
+    })
+    </script>
+</body>
+</html>
