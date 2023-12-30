@@ -4,7 +4,7 @@ const Registro = db.sequelize.define('registros',{
     tipo: {
         type: db.Sequelize.STRING
     },
-    data: {
+    dataRegistro: {
         type: db.Sequelize.DATE
     },
     linha: {
@@ -18,7 +18,9 @@ const Registro = db.sequelize.define('registros',{
     },
     carreta: {
         type: db.Sequelize.STRING
-    }
-})
+    },
+},
+{timestamps: false}
+);
 
 module.exports = Registro

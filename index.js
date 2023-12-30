@@ -22,7 +22,7 @@
     app.post("/registro",function(req, res){
         Registro.create({
             tipo: req.body.registro,
-            data: req.body.data,
+            dataRegistro: req.body.data,
             linha: req.body.linha,
             mot: req.body.mot,
             veiculo: req.body.veiculo,
